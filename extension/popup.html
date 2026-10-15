@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>澄阅 ClarityRead</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="brand">
+    <div class="mark" aria-hidden="true"></div>
+    <div>
+      <h1>澄阅</h1>
+      <p>ClarityRead</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <button id="toggleReading" class="primary" type="button">开启阅读模式</button>
+    <label class="field">
+      <span>字号</span>
+      <input id="fontSize" type="range" min="16" max="28" value="20" />
+    </label>
+    <label class="field">
+      <span>行距</span>
+      <input id="lineHeight" type="range" min="14" max="24" value="18" />
+    </label>
+    <button id="saveHighlight" class="ghost" type="button">收藏选中文字</button>
+  </section>
+
+  <section class="list-wrap">
+    <div class="list-head">
+      <h2>最近收藏</h2>
+      <button id="clearHighlights" class="link" type="button">清空</button>
+    </div>
+    <ul id="highlightList"></ul>
+    <p id="empty" class="empty">还没有收藏，在网页里选中文字后点「收藏」。</p>
+  </section>
+
+  <footer>
+    <span>快捷键 Alt+Shift+R / H</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
