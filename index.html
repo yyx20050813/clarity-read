@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>澄阅 ClarityRead — 专注阅读浏览器扩展</title>
+  <meta name="description" content="澄阅 ClarityRead：一键进入专注阅读模式，去干扰、调字号、收藏网页金句。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="logo" href="#top">澄阅</a>
+    <nav>
+      <a href="#how">安装</a>
+      <a href="#features">功能</a>
+      <a class="nav-cta" href="#download">下载</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="brand-kicker">ClarityRead</p>
+        <h1 class="brand-name">澄阅</h1>
+        <p class="lede">把嘈杂网页收成一页干净文字。开阅读模式、调字号、收藏金句——像随身带着一本安静的书。</p>
+        <div class="cta-row">
+          <a class="btn primary" id="downloadBtn" href="downloads/clarity-read.zip" download="clarity-read.zip">下载扩展包</a>
+          <a class="btn ghost" href="#how">查看安装步骤</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="page-sheet">
+          <span class="page-rule"></span>
+          <span class="page-rule short"></span>
+          <span class="page-rule"></span>
+          <span class="page-rule mid"></span>
+          <span class="page-rule"></span>
+          <span class="page-rule short"></span>
+          <span class="highlight-chip">收藏的句子会留在这里</span>
+        </div>
+        <div class="leaf leaf-a"></div>
+        <div class="leaf leaf-b"></div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2>只做阅读这件事</h2>
+      <p class="section-lede">少一点噪音，多一点注意力。</p>
+      <ul class="feature-list">
+        <li>
+          <h3>专注阅读模式</h3>
+          <p>隐藏导航、广告与侧栏，把正文收进舒适的阅读宽度。</p>
+        </li>
+        <li>
+          <h3>字号与行距</h3>
+          <p>按你的眼睛调整排版，长文也不容易累。</p>
+        </li>
+        <li>
+          <h3>金句收藏</h3>
+          <p>选中文字一键保存，稍后再回看灵感与出处链接。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="how" id="how">
+      <h2>三步安装</h2>
+      <p class="section-lede">兼容 Chromium 内核浏览器：Chrome、Edge、Brave 等。</p>
+      <ol class="steps">
+        <li>
+          <strong>下载</strong>
+          <span>点击上方「下载扩展包」，得到 <code>clarity-read.zip</code>。</span>
+        </li>
+        <li>
+          <strong>解压</strong>
+          <span>解压到任意文件夹，保留里面的 <code>manifest.json</code>。</span>
+        </li>
+        <li>
+          <strong>加载</strong>
+          <span>打开 <code>chrome://extensions</code>（或 Edge 的扩展页）→ 开启「开发者模式」→「加载已解压的扩展程序」→ 选择解压目录。</span>
+        </li>
+      </ol>
+      <p class="tip">快捷键：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> 开关阅读模式；<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> 收藏选中文字。</p>
+    </section>
+
+    <section class="download" id="download">
+      <h2>立即获取</h2>
+      <p class="section-lede">真实文件托管在本站 <code>downloads/</code> 目录，点击即可下载。</p>
+      <a class="btn primary large" href="downloads/clarity-read.zip" download="clarity-read.zip">下载 ClarityRead v1.0.0</a>
+      <p class="meta">
+        <a id="repoLink" href="https://github.com/" rel="noreferrer">查看 GitHub 仓库</a>
+        · 免费 · 本地存储，不上传阅读内容
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>澄阅 ClarityRead · 专业实习作品</p>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script>
+    const REPO = window.__CLARITY_REPO__ || "";
+    if (REPO) {
+      const link = document.getElementById("repoLink");
+      link.href = REPO;
+      link.textContent = "GitHub 仓库";
+    }
+  </script>
+</body>
+</html>
