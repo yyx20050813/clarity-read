@@ -1,0 +1,158 @@
+:root {
+  --ink: #102820;
+  --moss: #1f6b52;
+  --mist: #e7f1ec;
+  --paper: #f7faf8;
+  --line: #c9ddd3;
+  --muted: #5d7469;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 300px;
+  margin: 0;
+  padding: 16px;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 80% at 0% 0%, #d8efe4 0%, transparent 55%),
+    linear-gradient(180deg, #f4faf7 0%, var(--paper) 100%);
+  font: 14px/1.45 "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, #2f8f6f 0%, #154836 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.panel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.primary,
+.ghost {
+  width: 100%;
+  min-height: 38px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.primary {
+  color: #f4fff9;
+  background: linear-gradient(135deg, #248564, #155744);
+}
+
+.primary.on {
+  background: linear-gradient(135deg, #8a4b2a, #6d3518);
+}
+
+.ghost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.field input {
+  width: 100%;
+  accent-color: var(--moss);
+}
+
+.list-wrap {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.list-head h2 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.link {
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+}
+
+#highlightList {
+  display: grid;
+  gap: 8px;
+  max-height: 180px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+#highlightList li {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+#highlightList a {
+  color: var(--moss);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.empty {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
