@@ -24,14 +24,23 @@ gh api -X PUT "repos/$user/$repo/pages" -H "Accept: application/vnd.github+json"
 
 $pages = "https://$user.github.io/$repo/"
 $repoUrl = "https://github.com/$user/$repo"
-@(
-  "window.__CLARITY_REPO__ = `"$repoUrl`";",
-  "window.__CLARITY_PAGES__ = `"$pages`";"
-) | Set-Content -Encoding utf8 site-config.js
 
-$readme = Get-Content README.md -Raw
+# 读写一律用 UTF-8（无 BOM）。Windows PowerShell 5.1 的 Get-Content / Set-Content
+# 对无 BOM 文件按系统 ANSI(GBK) 处理，会把中文读成乱码再写成乱码（本仓库 README 曾因此损坏）。
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+function Read-Utf8([string]$name) {
+  [System.IO.File]::ReadAllText((Join-Path (Get-Location) $name), $utf8)
+}
+function Write-Utf8([string]$name, [string]$text) {
+  [System.IO.File]::WriteAllText((Join-Path (Get-Location) $name), $text, $utf8)
+}
+
+$siteConfig = "window.__CLARITY_REPO__ = `"$repoUrl`";`r`nwindow.__CLARITY_PAGES__ = `"$pages`";`r`n"
+Write-Utf8 "site-config.js" $siteConfig
+
+$readme = Read-Utf8 "README.md"
 $readme = $readme -replace 'https://<your-username>\.github\.io/clarity-read/', $pages
-Set-Content -Encoding utf8 README.md $readme
+Write-Utf8 "README.md" $readme
 
 git add site-config.js README.md
 git commit -m "Set live GitHub Pages and repository links"
